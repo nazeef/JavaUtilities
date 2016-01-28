@@ -93,7 +93,7 @@ public class StringUtil {
 		
 		List<T> elementList = new ArrayList<T>();
 		
-		if(element1 != null)
+		if(element1 != null)                         // if not null add to arraylist
 			elementList.add(element1);
 		if(element2 != null)
 			elementList.add(element2);
@@ -120,7 +120,7 @@ public class StringUtil {
 		List<T> elementList = new ArrayList<T>();
 		
 		if(element1 != null)
-			elementList.add(element1);
+			elementList.add(element1);                // if not null add to arraylist
 		if(element2 != null)
 			elementList.add(element2);
 		
@@ -138,6 +138,47 @@ public class StringUtil {
 	    	return null;
 	}
 	
+	//---------- print array elements of int array------------------------------------------------------
 	
+	public static void printArray(int[] arr){
+		
+		if(arr == null)                                  // null check
+			return;
+		
+		//System.out.println();
+		for(int counter=0;counter<arr.length;counter++){
+			System.out.print(arr[counter]+"\t");
+		}
+		System.out.println();
+	}
+	
+	//---------- print 2d array elements ------------------------------------------------------
+	
+	public static void printArray(int[][] arr){
+			
+			if(arr == null)                               // null check
+				return;
+			
+			for(int rowCounter=0;rowCounter<arr.length;rowCounter++){
+				for(int colCounter=0;colCounter<arr[0].length;colCounter++){
+					
+					System.out.print(arr[rowCounter][colCounter] + "\t");
+				}
+				System.out.println();
+			}
+	}
+	
+	//---------- print array elements of any data type------------------------------------------------------
+	
+	public static<T> void printArray(T[] arr){
+			
+			if(arr == null)                                  // null check
+				return;
+			
+			for(int counter=0;counter<arr.length;counter++){
+				System.out.print(arr[counter]+"\t");
+			}
+			System.out.println();
+		}
 
 }
