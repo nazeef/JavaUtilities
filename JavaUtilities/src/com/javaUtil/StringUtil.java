@@ -1,6 +1,8 @@
 package com.javaUtil;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -13,7 +15,7 @@ public class StringUtil {
 	
 	//-------------- Join array into one string with a delimiter---------------------------------------------------------------------
 	
-	public String join(String[] arr,String delimiter){
+	public static String join(String[] arr,String delimiter){
 		
 		int i=0;
 		StringBuilder newString=new StringBuilder("");
@@ -32,7 +34,7 @@ public class StringUtil {
 	
 	//-------------- Insert new string at multiple positions in source string-----------------------------------------------------------
 	
-	public String insertStringAtPositions(String str, String strToBeInserted, int... positionArgs  ){
+	public static String insertStringAtPositions(String str, String strToBeInserted, int... positionArgs  ){
 		
 		int lastPos=0 , i=0;
 		if(str == null || positionArgs.length == 0)
@@ -65,7 +67,7 @@ public class StringUtil {
 	
 	//-------------- Remove duplicates from int array---------------------------------------------------------------------------------------------
 	
-	public int[] arrayRemoveDuplicates(int[] arr){
+	public static int[] arrayRemoveDuplicates(int[] arr){
 		
 		Set<Integer> arraySet = new TreeSet<Integer>();
 		
@@ -84,5 +86,58 @@ public class StringUtil {
 	}
 	
 	
-	//     ----------------------------------------------------------------------------------------------------------------------------------
+	//     ----------------Find max element from list of elements of any data type------------------------------------------------------------------------------------------------------------------
+	
+	
+	public static <T extends Comparable<T>> T max(T element1, T element2, T... elements) {
+		
+		List<T> elementList = new ArrayList<T>();
+		
+		if(element1 != null)
+			elementList.add(element1);
+		if(element2 != null)
+			elementList.add(element2);
+		
+		if(elements != null){		                 // if only 2 parameters passed check
+		    for (T element : elements) {
+		        if (element != null) 
+		        	elementList.add(element);       // else add to arraylist
+		    }
+		}
+	    Collections.sort(elementList);
+		
+	    if(elementList.size() > 0)
+	    	return elementList.get(elementList.size()-1);
+	    else
+	    	return null;
+	}
+	
+//  ----------------Find min element from list of elements of any data type------------------------------------------------------------------------------------------------------------------
+	
+	
+	public static <T extends Comparable<T>> T min(T element1, T element2, T... elements) {
+		
+		List<T> elementList = new ArrayList<T>();
+		
+		if(element1 != null)
+			elementList.add(element1);
+		if(element2 != null)
+			elementList.add(element2);
+		
+		if(elements != null){		                 // if only 2 parameters passed check
+		    for (T element : elements) {
+		        if (element != null) 
+		        	elementList.add(element);       // else add to arraylist
+		    }
+		}
+	    Collections.sort(elementList);
+		
+	    if(elementList.size() > 0)
+	    	return elementList.get(0);
+	    else
+	    	return null;
+	}
+	
+	
+
 }
