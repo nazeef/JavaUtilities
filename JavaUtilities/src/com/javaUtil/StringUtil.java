@@ -180,5 +180,29 @@ public class StringUtil {
 			}
 			System.out.println();
 		}
+		
+	//     -------------------Convert time to 24hr format-----------------------------------------------------------------------------------
+
+	public static String convertTimeTo24HourFormat(String time){
+		
+		String hr= time.split(":")[0];
+        	int hour= Integer.parseInt(hr);
+        
+	        if(time.charAt(8)=='P' || time.charAt(8)=='p'){             // If PM
+	            
+	            if(hour<12)                                             // check noon
+	            	hour+= 12;
+	            return hour+time.substring(2,8);     
+	        }
+	        else if(time.charAt(8)=='A' || time.charAt(8)=='a'){        // If AM
+	        	
+	            if(hour==12)											// check midnight
+	            	hour = 0;
+	            return "0"+hour+time.substring(2,8);
+	        }
+	        else{                                                      // wrong format.
+	        	return time;
+	        }
+	}	
 
 }
