@@ -204,5 +204,31 @@ public class StringUtil {
 	        	return time;
 	        }
 	}	
+	
+	// ------------------------------  Power set of String- returns all substrings----------------------
+	
+	public static String[] powerSet(String string){
+		
+		if(string == null)
+			return null;
+		
+		List<String> list = new ArrayList<String>();
+		
+		int length = string.length();
+		
+		for( int outerCounter = 0 ; outerCounter < length ; outerCounter++ )
+	      {
+	         for( int innerCounter = 1 ; innerCounter <= length - outerCounter ; innerCounter++ )
+	         {
+	            list.add(string.substring(outerCounter, outerCounter + innerCounter));
+	         }
+	     }
+		
+		String substrings[] = list.toArray(new String[list.size()]);
+		
+		return substrings;		
+	}
+	
+	
 
 }
