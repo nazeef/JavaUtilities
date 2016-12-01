@@ -229,6 +229,27 @@ public class StringUtil {
 		return substrings;		
 	}
 	
+	//-------------Print entire object ,   object.toString()--------------------------------------------------
+	
+	public static void printObject(Object myClassObject){
+		for (Field field : myClassObject.getClass().getDeclaredFields()) {
+		    field.setAccessible(true);
+		    String name = field.getName();
+		    Object value=null;
+			try {
+				value = field.get(myClassObject);
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		    System.out.printf("%s: %s%n", name, value);
+		}
+		
+	}
+	
 	
 
 }
