@@ -55,5 +55,37 @@ public class FileReaderUtil{
 		
 		return readFile(fileName).split(delimiter);
 	}
+	
+	//--------Encrypt a file------------------
+	
+	private static String encode(String msg) {
+		
+		char[] original;
+		
+		original=msg.toCharArray();
+		
+		for(int i=0;i<original.length;i++){
+			int ascii = (int) original[i];
+			original[i]=(char) (ascii+3);
+		}
+		
+		return String.valueOf(original);
+	}
+	
+	//-------Decrypt a file-------------------------
+	
+	private static String decode(String msg) {
+		
+		char[] original;
+		
+		original=msg.toCharArray();
+		
+		for(int i=0;i<original.length;i++){
+			int ascii = (int) original[i];
+			original[i]=(char) (ascii-3);
+		}
+		
+		return String.valueOf(original);
+	}
 
 }
