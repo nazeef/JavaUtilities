@@ -1,0 +1,21 @@
+    Position fin=findBestSpot(list);
+		System.out.println(fin.x +" "+fin.y);
+	}
+
+	private static Position findBestSpot(List<Position> list) {
+		int min=9;
+		List<Position> finalList = new ArrayList<Position>();
+		for(int i=0;i<list.size();i++){
+			if(list.get(i).surrHoles<min){
+				min=list.get(i).surrHoles;
+			}
+		}
+		for(int i=0;i<list.size();i++){
+			if(list.get(i).surrHoles==min){
+				finalList.add(list.get(i));
+			}
+		}
+		int random=(int) Math.floor(Math.random() * (finalList.size()));
+		
+		return finalList.get(random);	
+	}
