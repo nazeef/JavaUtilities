@@ -1,0 +1,16 @@
+private static void pullFromDeck(Stack deck, List<Card> playerDeck, Card currentCard) {
+		
+		Card newCard;
+		int isFound=0;
+		while(isFound==0  ){		
+			newCard=(Card)deck.pop();System.out.println("hh"+newCard.suit);
+			playerDeck.add(newCard);
+			if(newCard.suit==currentCard.suit){
+				isFound=1;
+			}
+		    if( deck.isEmpty()){
+		    	System.out.println("You lost");
+		    	break;
+		    }
+		}
+	}
