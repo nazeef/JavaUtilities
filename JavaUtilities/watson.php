@@ -8,7 +8,7 @@ $(document).ready(function(){
         $.ajax({
 			url: "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2016-05-19",
 			beforeSend: function(xhr) { 
-			  xhr.setRequestHeader("Authorization", "Basic " + btoa("c77c2dbe-605b-4ab4-ab58-0b65b95809aa:Gsod3oRjaWDN")); 
+			  xhr.setRequestHeader("Authorization", "Basic " + btoa("username:password")); 
 			},
 			type: 'POST',
 			dataType: 'json',
