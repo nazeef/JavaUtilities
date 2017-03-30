@@ -1,0 +1,7 @@
+Set WshShell = WScript.CreateObject("WScript.Shell")
+WScript.Sleep 5000
+
+WshShell.SendKeys "nazaeef"
+WScript.Sleep 5000
+
+WshShell.SendKeys "Ibmaccount2*"
