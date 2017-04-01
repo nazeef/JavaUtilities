@@ -1,0 +1,32 @@
+public static int CompanyRecruitment(int[] input1,int input2)
+    {   int max=0;
+    	List<Integer> list=new ArrayList<Integer>();
+	    for(int i=60;i<1024;i++){
+	    	String bin=Integer.toBinaryString(i);
+	    	
+	    	int count = bin.length() - bin.replace("1", "").length();
+	    	if(count==6){
+	    		//System.out.println(bin);
+	    		int sum=0;
+	    		for(int k=0;k<bin.length();k++){
+	    			int val=Integer.parseInt(bin.charAt((bin.length()-1)-k)+"");
+	    			if(val==1){
+	    				sum+=input1[k];
+	    			}
+	    		}
+	    		//System.out.println(sum);
+	    		list.add(sum);
+	    		if(sum>max){
+	    			max=sum;
+	    		}
+	    	}
+	    }
+	    int cnt=0;
+	    for(int i=0;i<list.size();i++){
+	    	if(list.get(i)==max){
+	    		cnt++;
+	    	}
+	    }
+	    //System.out.println(cnt);
+	    return cnt;
+    }
