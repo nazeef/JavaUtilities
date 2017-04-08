@@ -1,3 +1,5 @@
+//  cat emails  | sed '/^$/d'  | sed 's/\(.*\)/\"\1\"/g' | tr "\n" ","
+
 var arr = ["Saab", "Volvo", "BMW"];         // emails here
 		var i=0;
 		function fetch(){
