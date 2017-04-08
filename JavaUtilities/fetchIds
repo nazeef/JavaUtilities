@@ -1,0 +1,23 @@
+var arr = ["Saab", "Volvo", "BMW"];         // emails here
+		var i=0;
+		function fetch(){
+			if(i>=arr.length){
+				return;
+			}
+			console.log(arr[i]);
+			document.getElementById("txt").value=arr[i];
+			document.getElementById("btn").click();i++;
+			setTimeout(fetchJson,10000);
+		}
+    
+		function fetchJson(){
+			console.log('json');
+			var jsonString=document.getElementById("pre").innerHTML;
+			console.log(jsonString);
+			var obj = JSON.parse(jsonString);
+			console.log(obj.city.SaasSubscriberId+","+obj.city.SaasCustomerId);      //print format
+	
+			fetch();
+		}
+		
+ fetch();
