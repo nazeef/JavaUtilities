@@ -1,0 +1,122 @@
+[?12-?Apr-?17 5:21 PM] Manish Kane: 
+________ file is read when a new subshell is started ( fr...
+________ file is read when a new subshell is started ( from the command line or through some program)
+
+
+In unix/linux system following are the existing file permission of sample.txt
+
+-rw-rw-r--
+
+then, user change file access permissions of sample.txt as follow
+
+chmod 4 sample.txt
+
+after run the above command the new file access permissions of sample.txt ass
+
+How to print the value of command line agruments which comes after 9th position ?
+
+which of the following command is used to add new group's in linux / ubuntu?
+
+Lets you enter commands that appear on the bottom line of the screen, and can affect the editing environment or interact with the external environment, such vi editor mode is called as ___________ mode.
+
+what would be the meaning of the given regular express expression?
+grep "[^a-m]" fileName
+
+which command is used to Searches a set of database files that contain short descriptions of system commands ?
+
+What is status of run level 3 ?
+
+if user is in /etc directory, the the absolute path to /etc/passwd is _________
+
+Which command will not lists all users who are currently logged in ?
+
+Which is the DELIM option is use in cut command as a delimiter instead of TAB ( default delimiter ) for field delimiter.
+
+Which of the following file hold all of the users information ?
+
+which of the following will show all processes except those not associated with a terminal ?
+
+which command will provides information about logged in users ? Ex - current work or process of all logged users ?
+
+which of the following option is used to Completes the command when you type a part of it ?
+
+In unix/linux system following are the existing file permission of sample.txt
+
+-rw-rw-r--
+
+then, user change file access permissions of sample.txt as follow
+
+chmod u=+x,g=-w sample.txt
+
+what will be the new file access permissions of sample.txt after abov
+
+if user is in /etc directory, the relative path to /etc/passwd is __________
+
+In vi editor,user wants to edits file discarding any unsaved changes.
+Which of the following command option will correct?
+
+Which of the following command will change the priority of a process ?
+
+The ______ file is used to recover a crashed editing session. 
+
+which of the following command is used to add new user's in linux / ubuntu?
+
+The kernel hands control of the boot process to the ________ program.
+
+To display the list of all parent of all processes which command is used ?
+
+How to print all parameters as a single string
+
+In vi editor, user wants to open the file in readonly mode, although the changes can be written using :w! command Which of following command option will correct?
+
+The kernel is loaded into memory, which in turn loads any necessary modules and mounts the root partition _____ mode.
+
+which of the following command will print the first 10 lines of each FILE to standard output.
+
+You can suspend a foreground command by pressing ____
+
+The ________ causes the command to run in the background and the shell command prompt becomes usable for other commands
+
+
+________ will rename the specified files by replacing the first occurrence of from in their name by to.
+
+From which file the commands are read everytime you login into the system. The commands in this file define the basic environment for your login account.
+(Note - assum that system is running 24 * 7 and users are login and logout periodically.) 
+
+In sort command, what is a field-separator option letter to sort the data.
+
+_______ command will displays the amount of disk space available on the file system containing each file name argument. 
+
+How to make a hardcopy record of an interactive session or terminal session ?
+
+using cat command user will print the output on standard output screen , if user have one text line and next 5 blank lines, one text line, again 5 blank lines and then one more test line and so on. using which cat command option user never print more tha
+
+Using regular expression how user will display any number of characters including none
+
+When using su command, you continue to use your environment variables and profile. If you want to use the account’s user environment, put a _____ symbol between the su and the account name: su – amber
+
+Using regular expression how user will display zero or more occurrences of the prevoius characters 
+
+Using which command, user can replace each input sequence of a repeated character that is listedin SET1 with a single occurrence of that character
+
+How to substituting one term for another term?
+
+How to display prev/current/next month output using cal command ?
+
+________ command is used to execute commands as another user ?
+
+which of the following is correct syntax for shebang ?
+
+To access the shell variables to subshell or in another switched/change shell, use ________ command.
+
+You can end a process by _______ keystroke.
+
+how to list one file per line from given path?
+
+In vi editor, How will user move the cursor from current posotion to last line of the file ?
+
+Use the _____ command to check that the job has been scheduled
+
+In vi editor, How to search and replace occurrence of pattern in given file?
+
+You can serach the history by pressing ______ keys and typing a few letters of the command.
