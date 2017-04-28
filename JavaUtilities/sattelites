@@ -1,0 +1,115 @@
+package satellites;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class satellites {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String strArr[]={"1#1","1#2","1#3","3#1","3#3"};
+		launchingSatellites(3,3,strArr);
+	}
+
+	public static int launchingSatellites(int input1,int input2,String[] input3)
+    {
+		Map<Integer,Integer> rows=new HashMap<Integer,Integer>();
+		Map<Integer,Integer> cols=new HashMap<Integer,Integer>();
+		int arr[][]=new int[input1][input2];
+		int max=0;
+		
+		for(String str : input3){
+			int rn=Integer.parseInt(str.split("#")[0]);
+			int cn=Integer.parseInt(str.split("#")[1]);
+			
+			arr[rn-1][cn-1]=1;
+			
+			if(rows.get(rn)==null){
+				rows.put(rn,1);
+			}else{
+				rows.put(rn,rows.get(rn)+1);
+			}
+			
+			if(cols.get(cn)==null){
+				cols.put(cn,1);
+			}else{
+				cols.put(cn,cols.get(cn)+1);
+			}			
+		}
+		
+		for(int i=1;i<=input1;i++){
+			if(rows.get(i)!=null && rows.get(i)>max){
+				if(checkRow(i-1,arr)%(rows.get(i)-1)==0)
+					max=rows.get(i);
+			}
+		}
+		
+		for(int i=1;i<=input1;i++){
+			if(cols.get(i)!=null && cols.get(i)>max){
+				if(checkCol(i-1,arr)%(cols.get(i)-1)==0)
+					max=cols.get(i);
+			}
+		}
+		System.out.println(max);
+		
+		printArray(arr);
+		if(max>3)
+			return max;
+		else
+			return 0;
+	
+    }
+	
+	private static int checkRow(int i, int[][] arr) {
+		// TODO Auto-generated method stub
+		int f=-1,l=-1;
+		for(int j=0;j<arr[0].length;j++){
+			if(arr[i][j]==1){
+				f=j;
+				break;
+			}
+		}
+		for(int j=arr[0].length-1;j>=0;j--){
+			if(arr[i][j]==1){
+				l=j;
+				break;
+			}
+		}
+		
+		return l-f;		
+	}
+	
+	private static int checkCol(int i, int[][] arr) {
+		// TODO Auto-generated method stub
+		int f=-1,l=-1;
+		for(int j=0;j<arr.length;j++){
+			if(arr[j][i]==1){
+				f=j;
+				break;
+			}
+		}
+		for(int j=arr.length-1;j>=0;j--){
+			if(arr[j][i]==1){
+				l=j;
+				break;
+			}
+		}
+		
+		return l-f;		
+	}
+
+
+	public static void printArray(int[][] arr){
+		
+		if(arr == null)                               // null check
+			return;
+		
+		for(int rowCounter=0;rowCounter<arr.length;rowCounter++){
+			for(int colCounter=0;colCounter<arr[0].length;colCounter++){
+				
+				System.out.print(arr[rowCounter][colCounter] + "\t");
+			}
+			System.out.println();
+		}
+	}
+}
