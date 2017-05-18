@@ -1,0 +1,24 @@
+int sum=0;
+for(int i=1;i<=n;i++){
+    sum+=(clone(i)%m);
+}
+sum=sum%10000;
+
+if(i<10){
+	return 1;
+}
+if(i<100){
+	if(i%11==0){
+		return 11;
+	}
+	return 10;
+}
+if(i<1000){
+	if(i%111==0){
+		return 111;
+	}
+	if((i%100)%11==0){
+		return 100;
+	}
+	
+}
