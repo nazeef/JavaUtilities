@@ -1,24 +1,68 @@
-int sum=0;
-for(int i=1;i<=n;i++){
-    sum+=(clone(i)%m);
-}
-sum=sum%10000;
+package Client;
 
-if(i<10){
-	return 1;
-}
-if(i<100){
-	if(i%11==0){
-		return 11;
+public class Client {
+
+	public static int arithmeticHash(int n, int m){
+		
+		int sum=0;
+		for(int i=1;i<=n;i++){
+		    sum+=(clone(i)%m);
+		}
+		sum=sum%10000;
+	      return sum;
 	}
-	return 10;
-}
-if(i<1000){
-	if(i%111==0){
-		return 111;
-	}
-	if((i%100)%11==0){
-		return 100;
+	private static int clone(int i) {
+		if(i<10){
+			return 1;
+		}
+		if(i<100){
+			if(i%11==0){
+				return 11;
+			}
+			return 10;
+		}
+		if(i<1000){
+			if(i%111==0){
+				return 111;
+			}
+			if((i%100)%11==0){
+				return 100;
+			}
+			if(countUniqueCharacters(i+"")==2 && countUniqueCharacters((i/10)+"")==1 && countUniqueCharacters((i%100)+"")==1){
+				return 101;
+			}
+			if(countUniqueCharacters(i+"")==2 && countUniqueCharacters((i/10)+"")==2 && countUniqueCharacters((i%100)+"")==1){
+				return 110;
+			}
+			return 102;
+		}
+		
+		
+		
+		return 1;
 	}
 	
+	
+	public static int countUniqueCharacters(String input) {
+	    String buffer = "";
+	    for (int i = 0; i < input.length(); i++) {
+	        if (!buffer.contains(String.valueOf(input.charAt(i)))) {
+	            buffer += input.charAt(i);
+	        }
+	    }
+	    return buffer.length();
+	}
+	
+	public static void main(String args[])
+	{
+	    /*
+	        You can use Console input as well with the help of Scanner or BufferedReader classes.
+		Please provide input data in Input box on right side of window.
+	    */
+            int n=5;
+	    int m=1;
+	    System.out.println(arithmeticHash(n,m));
+	}
+
 }
+
