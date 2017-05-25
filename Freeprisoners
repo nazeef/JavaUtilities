@@ -1,0 +1,41 @@
+
+public class Prisoners {
+	public static int freePrisoners(int N, int M, int[] CRIMES){
+		int max=0;
+		for(int i=1;i<Math.pow(2, CRIMES.length);i++){
+	    	String bin=Integer.toBinaryString(i);
+	    	
+	    		//System.out.println(bin);
+	    		int sum=0;
+	    		for(int k=0;k<bin.length();k++){
+	    			int val=Integer.parseInt(bin.charAt((bin.length()-1)-k)+"");
+	    			if(val==1){
+	    				sum+=CRIMES[k];
+	    			}
+	    		}
+	    	  //System.out.println(sum);
+	    	  if(sum%N==0){
+	    		  sum=sum/N;
+	    		  if(sum>max){
+	            	  max=sum;
+	              }
+	    	  }		  
+             
+	    	
+	    }
+		
+	return max;
+	}
+	public static void main(String args[])
+	{
+		/*
+		You can use Console input as well with the help of Scanner or BufferedReader classes.
+		Please provide input data in Input box on right side of window.
+		*/
+		int N = 7;
+		int M = 6;
+		int CRIMES[] = {1,2,3,4,5,6};
+		System.out.println(freePrisoners(N, M, CRIMES));
+	}
+
+}
