@@ -1,0 +1,66 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+
+public class Client {
+static int j=0;
+   
+	public static int spellFight(String NSpell,int N,String MSpell,int M){
+		Set<String> setN=new HashSet<String>();
+        getAllCombinations(NSpell,setN);
+        
+        Set<String> setM=new HashSet<String>();
+        getAllCombinations(MSpell,setM);
+	    System.out.println(setN.size()+","+setM.size());
+	    System.out.println(count("aababsab","aab"));
+	    
+	    for(int i=0;i<setN.size();i++){
+	    	for(int j=0;j<setM.size();j++){
+	    		//if(setN.)
+	    	}
+	    }
+	    
+        return 0;
+	}
+	
+	
+	
+	
+	public static void getAllCombinations(String str,Set list) {
+		findAllStrings("", str,list);
+		}
+
+	private static void findAllStrings(String prefix, String str,Set list) {
+		int n = str.length();
+		if (n == 0){
+			//System.out.println(prefix);
+			list.add(prefix);
+		}
+		else {
+			for (int i = 0; i < n; i++)
+				findAllStrings(prefix + str.charAt(i), str.substring(0, i) + str.substring(i+1, n),list);
+			}
+	}
+	
+	public static int count(String text, String find) {
+        int index = 0, count = 0, length = find.length();
+        while( (index = text.indexOf(find, index)) != -1 ) {                
+                index += length; count++;
+        }
+        return count;
+	}
+
+	public static void main(String args[])
+	{
+	    /*
+	        You can use Console input as well with the help of Scanner or BufferedReader classes.
+		Please provide input data in Input box on right side of window.
+	    */
+	
+	    System.out.println(spellFight("ABC",3,"ABCD",4));//12
+	    System.out.println(spellFight("ABC",3,"ABCAB",5));//30
+	}
+
+}
