@@ -1,0 +1,113 @@
+package exception;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Client {
+
+	public static int findDays(int N,int S,int D,int[] ROADS){
+		
+	
+		int flag=0,found=0,ind=-1;
+		Map<Integer,Integer> map1=new HashMap<Integer,Integer>();
+		for(int k=0;k<ROADS.length;k=k+2){
+			if(ROADS[k]==1){
+				flag=1;
+			}
+			if(flag==1){
+				map1.put(ROADS[k],ROADS[k+1] );
+			}
+			/*else{
+				map1.put(ROADS[k+1],ROADS[k] );
+			}*/
+			if(found==0){
+				if(ROADS[k]==S || ROADS[k+1]==S){
+					found=1;ind=k;
+				}
+	           if(ROADS[k]==D || ROADS[k+1]==D){
+					found=2;ind=k+1;
+				}
+			}
+		}	
+		
+		flag=1;
+		Map<Integer,Integer> map2=new HashMap<Integer,Integer>();
+		for(int k=0;k<ROADS.length;k=k+2){
+			if(flag==1){
+				map2.put(ROADS[k],ROADS[k+1] );
+			}
+			if(ROADS[k+1]==1){
+				flag=0;
+			}
+			
+			/*else{
+				map2.put(ROADS[k],ROADS[k+1] );
+			}*/
+		}	
+		
+		int day=1;
+		if(found==1){
+			if(ROADS[ind]!=S)
+				ind++;
+			if(ind%2!=0){
+				ind++;
+			}
+			int curr=ROADS[ind];
+			
+			for(int k=ind;k<ROADS.length*2;k++){
+				if(day%2==1){
+					if(map1.get(curr)!=null){
+						curr=map1.get(curr);
+					}
+				}else{
+					if(map2.get(curr)!=null){
+						curr=map2.get(curr);
+					}
+				}
+				day++;System.out.println(curr);
+				if(curr==D){
+					break;
+				}
+			}
+		}
+		else if(found==2){
+			if(ROADS[ind]!=S)
+				ind++;
+			if(ind%2!=0){
+				ind++;
+			}
+			int curr=ROADS[ind];
+			
+			for(int k=ind;k<ROADS.length*2;k++){
+				if(day%2==1){
+					if(map1.get(curr)!=null){
+						curr=map1.get(curr);
+					}
+				}else{
+					if(map2.get(curr)!=null){
+						curr=map2.get(curr);
+					}
+				}
+				day++;System.out.println(curr);
+				if(curr==D){
+					break;
+				}
+			}
+		}
+		 return day-1;
+	}
+	public static void main(String args[])
+	{
+	    /*
+	        You can use Console input as well with the help of Scanner or BufferedReader classes.
+		Please provide input data in Input box on right side of window.
+	    */
+        int N=5;
+		int S=2;
+		int D=5;
+		int ROADS[]={4,2,2,1,1,3,3,5};
+		
+	    System.out.println(findDays(N, S, D, ROADS));
+	}
+
+}
