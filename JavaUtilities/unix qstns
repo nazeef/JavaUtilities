@@ -176,13 +176,22 @@ ________ will rename the specified files by replacing the first occurrence of fr
 ->
 
 46.  You can end a process by _______ keystroke.
+-> Ctrl + C
 
-how to list one file per line from given path?
+47. how to list one file per line from given path?
+-> ls -1
 
-In vi editor, How will user move the cursor from current posotion to last line of the file ?
+48. In vi editor, How will user move the cursor from current posotion to last line of the file ?
+-> :$<Return> or G
 
-Use the _____ command to check that the job has been scheduled
 
-In vi editor, How to search and replace occurrence of pattern in given file?
+49. Use the _____ command to check that the job has been scheduled
+
+-> qstat
+
+50. In vi editor, How to search and replace occurrence of pattern in given file?
+
+-..> :%s/old-text/new-text/g
 
 You can serach the history by pressing ______ keys and typing a few letters of the command.
+-> ctrl + r
