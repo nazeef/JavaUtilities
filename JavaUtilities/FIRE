@@ -11,12 +11,12 @@ public class fire {
 			if(indL!=-1){
 				fL=fireIndices[indL];
 			}else{
-				fL=9999999;
+				fL=999999999;
 			}
 			if(indR!=-1){
 				fR=fireIndices[indR];
 			}else{
-				fR=9999999;
+				fR=999999999;
 			}
 			if(fL<fR){
 				ind=indL; 
@@ -45,7 +45,7 @@ public class fire {
 	}
 
 	public static int findMinL(int minval,int[] arr,int curr){
-	    int min=9999999,ind=-1;
+	    int min=999999999,ind=-1;
 		
 		for(int i=curr-1;i>=0;i--){
 			if(arr[i]==-1)
@@ -63,7 +63,7 @@ public class fire {
 	}
 
 	public static int findMinR(int minval,int[] arr,int curr){
-	    int min=9999999,ind=-1;
+	    int min=999999999,ind=-1;
 		
 		for(int i=curr;i<arr.length;i++){
 			if(arr[i]==-1)
