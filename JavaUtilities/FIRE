@@ -1,0 +1,95 @@
+
+public class fire {
+
+	public static int minimumTime(int N,int[] fireIndices){
+		 int minval=1,min=-1,indL=-1,indR=-1,curr=0,ind=-1,ext=0,dist=0,fL=-1,fR=-1;
+		 
+		 while(ext<N){
+			int d=0;
+			indR=findMinR(minval,fireIndices,curr);	
+			indL=findMinL(minval,fireIndices,curr);
+			if(indL!=-1){
+				fL=fireIndices[indL];
+			}else{
+				fL=9999999;
+			}
+			if(indR!=-1){
+				fR=fireIndices[indR];
+			}else{
+				fR=9999999;
+			}
+			if(fL<fR){
+				ind=indL; 
+				d=curr-indL;
+			}
+			else if(fR<fL){
+				ind=indR; 
+				d=indR-curr;
+			}else{
+				if((curr-indL)<(indR-curr)){
+				    ind=indL;
+					d=curr-indL;
+				}
+				else{
+					ind=indR;
+					d=indR-curr;
+				}
+			}
+			minval=fireIndices[ind];
+			fireIndices[ind]=-1;
+			ext++;
+			dist+=d;
+			curr=ind;
+		 }
+		 return dist+N;
+	}
+
+	public static int findMinL(int minval,int[] arr,int curr){
+	    int min=9999999,ind=-1;
+		
+		for(int i=curr-1;i>=0;i--){
+			if(arr[i]==-1)
+				continue;
+			if(arr[i]==minval){
+				return i;
+			}
+			if(arr[i]<min){
+				min=arr[i];
+				ind=i;
+			}
+		}
+		
+		return ind;
+	}
+
+	public static int findMinR(int minval,int[] arr,int curr){
+	    int min=9999999,ind=-1;
+		
+		for(int i=curr;i<arr.length;i++){
+			if(arr[i]==-1)
+				continue;
+			if(arr[i]==minval){
+				return i;
+			}
+			if(arr[i]<min){
+				min=arr[i];
+				ind=i;
+			}
+		}
+		
+		return ind;
+	}
+	public static void main(String args[])
+	{
+	    /*
+	        You can use Console input as well with the help of Scanner or BufferedReader classes.
+		Please provide input data in Input box on right side of window.
+	    */
+        int N=5;
+		int fireIndices[]={2,3,1,2,3};
+		
+	    System.out.println(minimumTime(N, fireIndices));
+	}
+
+}
+
