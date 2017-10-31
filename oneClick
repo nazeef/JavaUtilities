@@ -8,3 +8,8 @@ boolean result = devicePolicyManager.resetPassword("123456", DevicePolicyManager
 
 Toast.makeText(this, "button_lock_password_device..."+result,  Toast.LENGTH_LONG).show();   
 android
+
+
+PackageManager p = getPackageManager();
+                    ComponentName componentName = new ComponentName("apppackagename","apppackagename.launcher classname"); 
+                    p.setComponentEnabledSetting(componentName,PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
