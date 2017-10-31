@@ -1,0 +1,10 @@
+DevicePolicyManager devicePolicyManager =(DevicePolicyManager)getApplicationContext().getSystemService(Context.DEVICE_POLICY_SERVICE);
+ComponentName demoDeviceAdmin =new ComponentName(this, MyAdmin.class);
+
+devicePolicyManager.setPasswordQuality(demoDeviceAdmin,DevicePolicyManager.PASSWORD_QUALITY_UNSPECIFIED);
+devicePolicyManager.setPasswordMinimumLength(demoDeviceAdmin, 5);
+
+boolean result = devicePolicyManager.resetPassword("123456", DevicePolicyManager.RESET_PASSWORD_REQUIRE_ENTRY);
+
+Toast.makeText(this, "button_lock_password_device..."+result,  Toast.LENGTH_LONG).show();   
+android
