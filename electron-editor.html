@@ -6,8 +6,26 @@
 	<script>
 		var old_content;
 		var new_content='';
-		function cut(){
-			old_content=document.getElementById('ta1').value;			
+		
+		function cutt(){
+			old_content=document.getElementById('ta1').value;	
+			new_content='';
+			fields=document.getElementById('txt1').value.split(",")'
+			
+			lines=document.getElementById('ta1').value.split("\n");
+			for(var i=0;i<lines.length;i++){
+				if(lines[i]=="")
+					continue;
+				flds=lines[i].split(",");
+				for(var j=0;j<fields.length;j++){
+					if(j==0)
+						new_content+=flds[fields[j]];
+					else
+						new_content+=','+flds[fields[j]];
+				}
+				new_content+="\n";
+			}
+			document.getElementById('ta1').value=new_content;
 		}
 		
 		function csv(){
@@ -56,8 +74,8 @@
   <body>
   
     <h1>Hello World!</h1>
-	 <input type="text" value=""/>
-     <input type="button" value="CUT" onclick="cut()"/>
+	 <input type="text" id="txt1" value=""/>
+     <input type="button" value="CUT" onclick="cutt()"/>
 	 <input type="button" value="CSV" onclick="csv()"/>
 	 <input type="button" value="CSV_STRING" onclick="csvString()"/>
 	 <input type="button" value="RESET" onclick="reset()"/>
