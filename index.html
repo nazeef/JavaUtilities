@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+	<script>
+		var old_content;
+		var new_content='';
+		function cut(){
+			old_content=document.getElementById('ta1').value;			
+		}
+		
+		function csv(){
+			old_content=document.getElementById('ta1').value;	
+			new_content='';
+			lines=document.getElementById('ta1').value.split("\n");
+			for(var i=0;i<lines.length;i++){
+				if(lines[i]=="")
+					continue;
+				if(i==0)
+					new_content+=lines[i];
+				else
+					new_content+=','+lines[i];
+			}
+			document.getElementById('ta1').value=new_content;
+			document.getElementById('ta1').value=new_content.replace(/\,$/i, "");			
+		}
+		function csvString(){
+			old_content=document.getElementById('ta1').value;	
+			new_content='\'';
+			lines=document.getElementById('ta1').value.split("\n");
+			for(var i=0;i<lines.length;i++){
+				if(lines[i]=="")
+					continue;
+				if(i==0)
+					new_content+=lines[i];
+				else
+					new_content+=','+lines[i];
+			}
+			document.getElementById('ta1').value=new_content.replace(/\,/g, "\'\,\'");
+			document.getElementById('ta1').value+='\'';
+			//document.getElementById('ta1').value=new_content.replace(/\,$/i, "");			
+		}
+		
+		function reset(){
+			document.getElementById('ta1').value=old_content;
+			//alert('hi');
+		}
+		
+		function brackets(){
+			document.getElementById('ta1').value="("+document.getElementById('ta1').value+")";
+			//alert('hi');
+		}
+	</script>
+  </head>
+  <body>
+  
+    <h1>Hello World!</h1>
+	 <input type="text" value=""/>
+     <input type="button" value="CUT" onclick="cut()"/>
+	 <input type="button" value="CSV" onclick="csv()"/>
+	 <input type="button" value="CSV_STRING" onclick="csvString()"/>
+	 <input type="button" value="RESET" onclick="reset()"/>
+	 <input type="button" value=" ( ) brackets" onclick="brackets()"/><br/>
+     <textarea id="ta1" rows="30" cols="180"></textarea>
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+	
+  </body>
+</html>
