@@ -10,7 +10,7 @@
 		function cutt(){
 			old_content=document.getElementById('ta1').value;	
 			new_content='';
-			fields=document.getElementById('txt1').value.split(",")'
+			fields=document.getElementById('txt1').value.split(",");
 			
 			lines=document.getElementById('ta1').value.split("\n");
 			for(var i=0;i<lines.length;i++){
@@ -19,9 +19,9 @@
 				flds=lines[i].split(",");
 				for(var j=0;j<fields.length;j++){
 					if(j==0)
-						new_content+=flds[fields[j]];
+						new_content+=flds[fields[j]-1];
 					else
-						new_content+=','+flds[fields[j]];
+						new_content+=','+flds[fields[j]-1];
 				}
 				new_content+="\n";
 			}
@@ -74,7 +74,7 @@
   <body>
   
     <h1>Hello World!</h1>
-	 <input type="text" id="txt1" value=""/>
+	 <input type="text" id="txt1" value="1"/>
      <input type="button" value="CUT" onclick="cutt()"/>
 	 <input type="button" value="CSV" onclick="csv()"/>
 	 <input type="button" value="CSV_STRING" onclick="csvString()"/>
