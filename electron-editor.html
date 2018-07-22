@@ -69,6 +69,54 @@
 			document.getElementById('ta1').value="("+document.getElementById('ta1').value+")";
 			//alert('hi');
 		}
+		
+		function nRecords(){
+			old_content=document.getElementById('ta1').value;	
+			new_content='';
+			var n=document.getElementById('txt2').value;
+			records=document.getElementById('ta1').value.split(",");
+			for(var i=0;i<records.length;i++){
+				new_content+=records[i];
+				if((i+1)%n==0)
+					new_content+="\n";
+				else
+					new_content+=",";
+			}
+			document.getElementById('ta1').value=new_content;
+		}
+		
+		function show(){
+			document.getElementById('more').style.display="block";
+			//alert('hi');
+		}
+		
+		function a_minus_b(){
+			//document.getElementById('more').style.display="block";
+			var del="\n";
+			if(document.getElementById('txtDel').value!=""){
+				del=document.getElementById('txtDel').value;
+			}	
+			new_content='';
+			linesA=document.getElementById('a').value.split(del);
+			linesB=document.getElementById('b').value.split(del);
+			
+			for(var i=0;i<linesA.length;i++){
+				var flag=0;
+				if(linesA[i]=="")
+					continue;
+				for(var j=0;j<linesB.length;j++){			
+					if(linesA[i]==linesB[j]){
+						flag=1;
+						break;
+					}
+				}
+				if(flag==0)	{
+					new_content+=linesA[i]+del;
+				}
+			}
+			document.getElementById('a').value=new_content;
+			//document.getElementById('ta1').value=new_content.replace(/\,$/i, "");			
+		}
 	</script>
   </head>
   <body>
@@ -79,8 +127,20 @@
 	 <input type="button" value="CSV" onclick="csv()"/>
 	 <input type="button" value="CSV_STRING" onclick="csvString()"/>
 	 <input type="button" value="RESET" onclick="reset()"/>
-	 <input type="button" value=" ( ) brackets" onclick="brackets()"/><br/>
-     <textarea id="ta1" rows="30" cols="180"></textarea>
+	 <input type="button" value=" ( ) brackets" onclick="brackets()"/>
+	 <input type="text" id="txt2" value="100"/>
+     <input type="button" value="N RECORDS EACH LINE" onclick="nRecords()"/><br/>
+     <textarea id="ta1" rows="30" cols="180"></textarea><br/>
+	 <input type="button" value="MORE" onclick="show()"/><br/>
+	 <div id="more" style="display:none">
+		<input type="button" value="Do a-b" onclick="a_minus_b()"/><input type="text" id="txtDel" value=""/><br/>
+		<table>
+			<tr>
+				<td><textarea id="a" rows="30" cols="90"></textarea></td>
+				<td><textarea id="b" rows="30" cols="90"></textarea></td>
+			</tr>
+		</table>
+	 </div>
     <script>
       // You can also require other files to run in this process
       require('./renderer.js')
