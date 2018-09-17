@@ -90,7 +90,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
         OnClickListener listener = new OnClickListener() {
     	    public void onClick(View view) {
-    	        Intent intent = new Intent(MainActivity.this, MyService.class);	
+    	        Intent intent = new Intent(MainActivity.this, NLService.class);	
 		        switch (view.getId()) {
 		            case R.id.service_start:
 		            	//starts service for the given Intent 
