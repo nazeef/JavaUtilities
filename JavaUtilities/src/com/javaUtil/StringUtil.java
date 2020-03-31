@@ -250,6 +250,31 @@ public class StringUtil {
 		
 	}
 	
-	
+	//-------------Shift a string to left or right
+	// Left -1 , Right -2
+	private static String shift(String str, int numOfPlaces, int leftOrRight) {
 
+		char[] newStr= new char[str.length()];
+
+		if(leftOrRight == 1){   // Left shift
+			for(int i=0;i<str.length();i++){
+				if((i-numOfPlaces) >= 0){
+					newStr[i-numOfPlaces]=str.charAt(i);
+				}else{
+					newStr[str.length() + (i-numOfPlaces)]=str.charAt(i);
+				}	
+			}
+		}
+		else if(leftOrRight == 2){   // Right shift
+			for(int i=0;i<str.length();i++){
+				if((i+numOfPlaces) < str.length()){
+					newStr[i+numOfPlaces]=str.charAt(i);
+				}else{
+					newStr[(i+numOfPlaces) - str.length()]=str.charAt(i);
+				}	
+			}
+		}
+		return String.valueOf(newStr);
+	}
+	
 }
